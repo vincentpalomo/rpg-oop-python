@@ -17,6 +17,9 @@ class Character:
     target.health_bar.update()
     print(f'{self.name} dealt {self.weapon.damage} to {target.name} with {self.weapon.name}')
 
+  def is_dead(self) -> bool:
+    return self.health <= 0
+
 # ---------- subclass setup ---------------
 class Hero(Character):
   def __init__(self, name: str, health: int) -> None:

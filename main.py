@@ -17,10 +17,18 @@ while True:
   hero.attack(enemy)
   enemy.attack(hero)
 
-  # print(f'Health of {hero.name}: {hero.health}')
-  # print(f'Health of {enemy.name}: {enemy.health}')
-
   hero.health_bar.draw()
   enemy.health_bar.draw()
 
+  if hero.is_dead() or enemy.is_dead():
+    break
+
   input()
+
+# ---------- battle message ---------
+if hero.is_dead():
+  print(f'{enemy.name} has defeated {hero.name}! 💀')
+elif enemy.is_dead():
+  print(f'{hero.name} has defeated {enemy.name}! ⚔')
+else:
+  print('it\'s a draw!')
