@@ -20,7 +20,7 @@ loot_table.add_weapon(morning_star)
 
 
 hero = Hero(name='jinx', health=100, initial_weapon=iron_sword)
-enemy = Enemy(name='doo', health=20, weapon=short_bow)
+enemy = Enemy(name='doo', health=120, weapon=short_bow)
 
 # --------------------- main game loop -----------------------
 game_online = True
