@@ -30,7 +30,8 @@ class Hero(Character):
   def __init__(self, name: str, health: int, initial_weapon=None) -> None:
     super().__init__(name=name, health=health)
 
-    self.default_weapon = self.weapon
+    self.default_weapon = initial_weapon if initial_weapon else self.weapon
+    self.weapon = self.default_weapon
     self.health_bar = HealthBar(self, color='green')
 
     if initial_weapon:
