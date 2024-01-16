@@ -1,5 +1,6 @@
 # ----------- imports -------------
 from weapon import fists
+from health_bar import HealthBar
 
 # ----------- parent class ---------------
 class Character:
@@ -13,6 +14,7 @@ class Character:
   def attack(self, target) -> None:
     target.health -= self.weapon.damage
     target.health = max(target.health, 0)
+    target.health_bar.update()
     print(f'{self.name} dealt {self.weapon.damage} to {target.name} with {self.weapon.name}')
 
 # ---------- subclass setup ---------------
@@ -21,6 +23,7 @@ class Hero(Character):
     super().__init__(name=name, health=health)
 
     self.default_weapon = self.weapon
+    self.health_bar = HealthBar(self, color='green')
 
   def equip(self, weapon) -> None:
     self.weapon = weapon
@@ -35,3 +38,4 @@ class Enemy(Character):
     super().__init__(name, health)
     
     self.weapon = weapon
+    self.health_bar = HealthBar(self, color='red')
