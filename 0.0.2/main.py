@@ -11,9 +11,9 @@ class GameLoop:
     def battle(self):
         os.system('clear')
         print()
-        print(f'{self.hero.name} vs {self.enemy.name}')
+        print(f'{'~' * 10} {self.hero.name} vs {self.enemy.name} {'~' * 10}')
         print()
-        print(f'Prepare for battle!')
+        print(f'{'~' * 10} Prepare for battle! {'~' * 10}')
         time.sleep(2)
 
         while self.hero.is_alive() and self.enemy.is_alive():
@@ -35,7 +35,8 @@ class GameLoop:
             if not self.enemy.is_alive():
                 os.system('clear')
                 print()
-                print(f'{self.enemy.name} has been defeated! 💀')
+                print(
+                    f'{'~' * 10} {self.enemy.name} has been defeated! 💀 {'~' * 10}')
                 time.sleep(2)
                 break
 
@@ -47,7 +48,7 @@ class GameLoop:
             if not self.hero.is_alive():
                 os.system('clear')
                 print()
-                print(f'{self.hero.name} has been defeated! 💀')
+                print(f'{'~' * 10} {self.hero.name} has been defeated! 💀 {'~' * 10}')
                 time.sleep(2)
                 break
 
