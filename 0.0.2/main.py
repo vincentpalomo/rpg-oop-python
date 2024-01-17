@@ -8,7 +8,12 @@ class GameLoop:
     self.enemy = enemy
 
   def battle(self):
+    os.system('clear')
+    print()
     print(f'{self.hero.name} vs {self.enemy.name}')
+    print()
+    print(f'Prepare for battle!')
+    time.sleep(2)
 
     while self.hero.is_alive() and self.enemy.is_alive():
       os.system('clear')
@@ -25,7 +30,10 @@ class GameLoop:
       time.sleep(1)
 
       if not self.enemy.is_alive():
+        os.system('clear')
+        print()
         print(f'{self.enemy.name} has been defeated!')
+        time.sleep(2)
         break
 
       self.hero.take_damage(enemy_damage)
@@ -33,7 +41,10 @@ class GameLoop:
       time.sleep(1)
 
       if not self.hero.is_alive():
+        os.system('clear')
+        print()
         print(f'{self.hero.name} has been defeated!')
+        time.sleep(2)
         break
       
       print()
@@ -42,15 +53,20 @@ class GameLoop:
     os.system('clear')
     print()
     print(f'Stage Complete!')
+    print()
     self.hero.display_health()
     self.enemy.display_health()
 
   def start_game(self):
     while True:
-      print('Welcome to hero of jinx')
+      os.system('clear')
+      print()
+      print('Welcome to Heroes of Jinxton')
+      print()
       input('Press Enter to Start!')
       self.battle()
 
+      print()
       play_again = input('Do you want to play again? (yes/no): ')
       if play_again.lower() != 'yes':
         break
