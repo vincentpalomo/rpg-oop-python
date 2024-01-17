@@ -32,7 +32,7 @@ class GameLoop:
       if not self.enemy.is_alive():
         os.system('clear')
         print()
-        print(f'{self.enemy.name} has been defeated!')
+        print(f'{self.enemy.name} has been defeated! 💀')
         time.sleep(2)
         break
 
@@ -43,7 +43,7 @@ class GameLoop:
       if not self.hero.is_alive():
         os.system('clear')
         print()
-        print(f'{self.hero.name} has been defeated!')
+        print(f'{self.hero.name} has been defeated! 💀')
         time.sleep(2)
         break
       
@@ -61,7 +61,7 @@ class GameLoop:
     while True:
       os.system('clear')
       print()
-      print('Welcome to Heroes of Jinxton')
+      print('Welcome to Heroes of Jinxton ⚔')
       print()
       input('Press Enter to Start!')
       self.battle()
