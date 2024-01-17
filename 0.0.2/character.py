@@ -4,6 +4,7 @@ class Character:
   def __init__(self, name, health, damage, weapon=None) -> None:
     self.name = name
     self.health = health
+    self.max_health = health
     self.damage = damage
     self.weapon = weapon
 
@@ -33,7 +34,7 @@ class Character:
     print(f'{self.name}`s HP: {health_bar} {self.health}')
 
   def reset(self) -> None:
-    self.health = self.health
+    self.health = self.max_health
 
 class Hero(Character):
   def __init__(self, name, health, damage, weapon=None) -> None:

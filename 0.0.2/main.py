@@ -35,8 +35,9 @@ class GameLoop:
       if not self.hero.is_alive():
         print(f'{self.hero.name} has been defeated!')
         break
-
-      input()
+      
+      print()
+      input('Press any button to continue...')
 
     os.system('clear')
     print()
@@ -45,8 +46,18 @@ class GameLoop:
     self.enemy.display_health()
 
   def start_game(self):
-    print('Welcome to hero of jinx')
-    self.battle()
+    while True:
+      print('Welcome to hero of jinx')
+      input('Press Enter to Start!')
+      self.battle()
+
+      play_again = input('Do you want to play again? (yes/no): ')
+      if play_again.lower() != 'yes':
+        break
+      else:
+        os.system('clear')
+        self.hero.reset()
+        self.enemy.reset()
 
 hero = Hero(name='Doo', health=100, damage=25)
 enemy = Enemy(name='Wormy', health=100, damage=15)
