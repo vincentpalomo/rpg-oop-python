@@ -31,11 +31,12 @@ class Character:
         return self.health > 0
 
     def display_health(self):
-        bar_length = 20
+        bar_length = 30
         remaining_health = int((self.health / 100) * bar_length)
         health_bar = '|' + '🀫' * remaining_health + \
             '-' * (bar_length - remaining_health) + '|'
-        print(f'{self.name}`s HP: {health_bar} {self.health}')
+        print(f'{self.name}`s HP:')
+        print(f'{health_bar} {self.health}/{self.max_health}')
 
     def reset(self) -> None:
         self.health = self.max_health
