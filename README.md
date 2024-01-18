@@ -15,7 +15,7 @@ git clone https://github.com/vincentpalomo/rpg-oop-python
 2. Navigate to the project directory:
 
 ```
-cd your-repository
+cd your-repository/0.0.2
 ```
 
 3. Run the game:
