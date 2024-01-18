@@ -2,6 +2,7 @@ import time
 import os
 from character import Hero, Enemy
 from loot import Loot
+from weapon import morning_star
 
 
 class GameLoop:
@@ -29,7 +30,10 @@ class GameLoop:
             time.sleep(1)
 
             self.enemy.take_damage(hero_damage)
-            print(f'{self.hero.name} deals {hero_damage} to {self.enemy.name}!')
+            if self.hero.weapon is not None:
+                print(f'{self.hero.name} deals {hero_damage} to {self.enemy.name} with {self.hero.weapon.name}!')
+            else:
+                print(f'{self.hero.name} deals {hero_damage} to {self.enemy.name}!')
             time.sleep(1)
 
             if not self.enemy.is_alive():
@@ -66,6 +70,10 @@ class GameLoop:
                 os.system('clear')
                 print()
                 print(f'{"~" * 10} YOU LOSE {"~" * 10}')
+                if self.hero.weapon is not None:
+                  print()
+                  print(f'Your weapon ({self.hero.weapon.name}) has been lost!')
+                  self.hero.player_down()
                 time.sleep(2)
                 break
 
@@ -101,7 +109,7 @@ class GameLoop:
 
 
 hero = Hero(name='Doo', health=100, damage=25)
-enemy = Enemy(name='Wormy', health=100, damage=25)
+enemy = Enemy(name='Wormy', health=100, damage=30)
 
 game = GameLoop(hero, enemy)
 game.start_game()
