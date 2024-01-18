@@ -8,21 +8,20 @@ To run the game, you need to have Python installed on your system.
 
 1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/vincentpalomo/rpg-oop-python
-
-   ```
+```bash
+git clone https://github.com/vincentpalomo/rpg-oop-python
+```
 
 2. Navigate to the project directory:
 
-```bash
+```
 cd your-repository
 ```
 
 3. Run the game:
 
 ```
-   python main.py
+python main.py
 ```
 
 Gameplay
