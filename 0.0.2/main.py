@@ -74,6 +74,7 @@ class GameLoop:
                   print()
                   print(f'Your weapon ({self.hero.weapon.name}) has been lost!')
                   self.hero.player_down()
+                  self.enemy.reset_damage()
                   time.sleep(2)
                 time.sleep(2)
                 break

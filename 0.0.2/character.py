@@ -70,4 +70,8 @@ class Enemy(Character):
     
     def increase_damage(self) -> None:
         self.damage += 5
+        print()
         print(f'Enemy damage increased by {5}')
+    
+    def reset_damage(self) -> None:
+        self.damage = 25
