@@ -2,8 +2,6 @@ import time
 import os
 from character import Hero, Enemy
 from loot import Loot
-from weapon import morning_star
-
 
 class GameLoop:
     def __init__(self, hero, enemy) -> None:
