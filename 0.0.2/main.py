@@ -109,8 +109,8 @@ class GameLoop:
                 self.enemy.reset()
 
 
-hero = Hero(name='Doo', health=100, damage=25)
-enemy = Enemy(name='Wormy', health=100, damage=30)
+hero = Hero(name='Hero', health=100, damage=25)
+enemy = Enemy(name='Enemy', health=100, damage=30)
 
 game = GameLoop(hero, enemy)
 game.start_game()
