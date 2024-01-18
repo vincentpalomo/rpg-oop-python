@@ -93,7 +93,7 @@ class GameLoop:
         while True:
             os.system('clear')
             print()
-            print('Welcome to Heroes of Jinxton ⚔')
+            print('Welcome to Mystical Realms ⚔')
             print()
             input('Press Enter to Start!')
             self.battle()

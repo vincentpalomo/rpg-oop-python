@@ -1,6 +1,6 @@
-# Heroes of Jinxton ⚔
+# Mystical Realms ⚔
 
-Welcome to Heroes of Jinxton, an exciting text-based RPG game written in Python using Object-Oriented Programming (OOP) principles.
+Welcome to Mystical Realms, an exciting text-based RPG game written in Python using Object-Oriented Programming (OOP) principles.
 
 ## Getting Started
 
