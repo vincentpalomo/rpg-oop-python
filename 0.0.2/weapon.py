@@ -18,3 +18,5 @@ recurve_bow = Weapon(name='recurve bow', weapon_type='ranged', damage=35)
 fists = Weapon(name='iron fists', weapon_type='blunt', damage=5)
 bronze_hammer = Weapon(name='bronze hammer', weapon_type='blunt', damage=15)
 morning_star = Weapon(name='morning star', weapon_type='blunt', damage=40)
+
+get_weapons = [iron_sword, bronze_sword, silver_sword,short_bow, long_bow, recurve_bow, fists, bronze_hammer, morning_star]

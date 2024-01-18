@@ -1,9 +1,9 @@
 import random
-from weapon import Weapon, iron_sword, bronze_sword, silver_sword,short_bow, long_bow, recurve_bow, fists, bronze_hammer, morning_star
+from weapon import Weapon, get_weapons
 
 class Loot:
   def __init__(self) -> None:
-    self.weapons = [iron_sword, bronze_sword, silver_sword,short_bow, long_bow, recurve_bow, fists, bronze_hammer, morning_star]
+    self.weapons = get_weapons
 
   def get_random_loot(self):
     if not self.weapons:
