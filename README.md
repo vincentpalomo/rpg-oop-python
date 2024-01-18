@@ -31,7 +31,7 @@ Gameplay
 - Choose whether to equip the obtained loot or continue the journey without it.
 
 > [!NOTE]
-> Game is still underdevelopment and some features are not implemented yet.
+> Game is currently a Work In Progress and some features have not been implemented yet.
 
 Code Structure
 
