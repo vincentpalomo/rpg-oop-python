@@ -67,3 +67,7 @@ class Hero(Character):
 class Enemy(Character):
     def __init__(self, name, health, damage, weapon=None) -> None:
         super().__init__(name, health, damage, weapon)
+    
+    def increase_damage(self) -> None:
+        self.damage += 5
+        print(f'Enemy damage increased by {5}')

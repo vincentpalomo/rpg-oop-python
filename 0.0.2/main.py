@@ -21,6 +21,7 @@ class GameLoop:
             print()
             self.hero.display_health()
             self.enemy.display_health()
+            print(f'Enemy current base damage: {self.enemy.damage}')
 
             print()
             hero_damage = self.hero.attack()
@@ -38,6 +39,7 @@ class GameLoop:
                 os.system('clear')
                 print()
                 print(f'{"~" * 10} {self.enemy.name} has been defeated! 💀 {"~" * 10}')
+                self.enemy.increase_damage()
                 time.sleep(2)
                 
                 os.system('clear')
@@ -105,10 +107,11 @@ class GameLoop:
                 os.system('clear')
                 self.hero.reset()
                 self.enemy.reset()
+                
 
 
 hero = Hero(name='Hero', health=100, damage=25)
-enemy = Enemy(name='Enemy', health=100, damage=30)
+enemy = Enemy(name='Enemy', health=100, damage=25)
 
 game = GameLoop(hero, enemy)
 game.start_game()
