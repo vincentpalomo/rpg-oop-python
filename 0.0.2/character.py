@@ -33,7 +33,7 @@ class Character:
     def display_health(self):
         bar_length = 30
         remaining_health = int((self.health / 100) * bar_length)
-        health_bar = '|' + '🀫' * remaining_health + \
+        health_bar = '|' + '█' * remaining_health + \
             '-' * (bar_length - remaining_health) + '|'
         print(f'{self.name}`s HP:')
         print(f'{health_bar} {self.health}/{self.max_health}')

@@ -11,9 +11,9 @@ class GameLoop:
     def battle(self):
         os.system('clear')
         print()
-        print(f'{'~' * 10} {self.hero.name} vs {self.enemy.name} {'~' * 10}')
+        print(f'{"~" * 10} {self.hero.name} vs {self.enemy.name} {"~" * 10}')
         print()
-        print(f'{'~' * 10} Prepare for battle! {'~' * 10}')
+        print(f'{"~" * 10} Prepare for battle! {"~" * 10}')
         time.sleep(2)
 
         while self.hero.is_alive() and self.enemy.is_alive():
@@ -28,27 +28,25 @@ class GameLoop:
             time.sleep(1)
 
             self.enemy.take_damage(hero_damage)
-            print(f'{self.hero.name} deals {
-                  hero_damage} to {self.enemy.name}!')
+            print(f'{self.hero.name} deals {hero_damage} to {self.enemy.name}!')
             time.sleep(1)
 
             if not self.enemy.is_alive():
                 os.system('clear')
                 print()
                 print(
-                    f'{'~' * 10} {self.enemy.name} has been defeated! 💀 {'~' * 10}')
+                    f'{"~" * 10} {self.enemy.name} has been defeated! 💀 {"~" * 10}')
                 time.sleep(2)
                 break
 
             self.hero.take_damage(enemy_damage)
-            print(f'{self.enemy.name} deals {
-                  enemy_damage} to {self.hero.name}!')
+            print(f'{self.enemy.name} deals {enemy_damage} to {self.hero.name}!')
             time.sleep(1)
 
             if not self.hero.is_alive():
                 os.system('clear')
                 print()
-                print(f'{'~' * 10} {self.hero.name} has been defeated! 💀 {'~' * 10}')
+                print(f'{"~" * 10} {self.hero.name} has been defeated! 💀 {"~" * 10}')
                 time.sleep(2)
                 break
 
