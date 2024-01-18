@@ -30,6 +30,9 @@ Gameplay
 - Defeat enemies to progress through stages and earn loot.
 - Choose whether to equip the obtained loot or continue the journey without it.
 
+> [!NOTE]
+> Game is still underdevelopment and some features are not implemented yet.
+
 Code Structure
 
 The game is organized into three main classes:
