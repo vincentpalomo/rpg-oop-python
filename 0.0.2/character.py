@@ -10,6 +10,12 @@ class Character:
         self.weapon = weapon
 
     def attack(self) -> None:
+        if self.weapon != None:
+            base_damage = self.damage + self.weapon.damage
+            print(f'Weapon Bonus Damage {base_damage}')
+        else:
+            base_damage = self.damage
+            print(f'Base Damage {base_damage}')
         is_critical = random.random() < 0.1
 
         if is_critical:
@@ -17,9 +23,9 @@ class Character:
             print(f'{self.name} gained extra damage!')
             print()
 
-            return int(self.damage * 1.5)
+            return int(base_damage * 1.5)
         else:
-            return random.randint(1, self.damage)
+            return random.randint(1, base_damage)
 
     def take_damage(self, damage) -> None:
         self.health -= damage
@@ -45,6 +51,11 @@ class Character:
 class Hero(Character):
     def __init__(self, name, health, damage, weapon=None) -> None:
         super().__init__(name, health, damage, weapon)
+
+    def equip(self, weapon) -> None:
+        self.weapon = weapon
+        print()
+        print(f'{self.name} equipped a(n) {self.weapon.name}')    
 
     def reset(self):
         super().reset()

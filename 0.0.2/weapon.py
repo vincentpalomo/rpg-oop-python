@@ -15,6 +15,6 @@ long_bow = Weapon(name='long bow', weapon_type='ranged', damage=20)
 recurve_bow = Weapon(name='recurve bow', weapon_type='ranged', damage=35)
 
 # blunt
-fists = Weapon(name='fists', weapon_type='blunt', damage=5)
+fists = Weapon(name='iron fists', weapon_type='blunt', damage=5)
 bronze_hammer = Weapon(name='bronze hammer', weapon_type='blunt', damage=15)
 morning_star = Weapon(name='morning star', weapon_type='blunt', damage=40)

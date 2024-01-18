@@ -35,8 +35,21 @@ class GameLoop:
             if not self.enemy.is_alive():
                 os.system('clear')
                 print()
-                print(
-                    f'{"~" * 10} {self.enemy.name} has been defeated! 💀 {"~" * 10}')
+                print(f'{"~" * 10} {self.enemy.name} has been defeated! 💀 {"~" * 10}')
+                time.sleep(2)
+                
+                os.system('clear')
+                loot = Loot()
+                get_loot = loot.get_random_loot()
+                print()
+                print(f'You obtained a(n) {get_loot.name}!')
+                print()
+                answer = input('Do you want to equip the loot? (yes/no): ')
+                if answer.lower() == 'yes':
+                  hero.equip(get_loot)
+                else:
+                  print()
+                  print(f'The loot was not equipped.')
                 time.sleep(2)
                 break
 
@@ -49,6 +62,11 @@ class GameLoop:
                 print()
                 print(f'{"~" * 10} {self.hero.name} has been defeated! 💀 {"~" * 10}')
                 time.sleep(2)
+
+                os.system('clear')
+                print()
+                print(f'{"~" * 10} YOU LOSE {"~" * 10}')
+                time.sleep(2)
                 break
 
             print()
@@ -60,9 +78,6 @@ class GameLoop:
         print()
         self.hero.display_health()
         self.enemy.display_health()
-        loot = Loot()
-        get_loot = loot.get_random_loot()
-        print(f'You obtained a(n) {get_loot.name}!')
         
 
     def start_game(self):
