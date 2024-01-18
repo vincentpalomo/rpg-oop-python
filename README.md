@@ -39,3 +39,11 @@ The game is organized into three main classes:
     GameLoop: Manages the game flow, including battles and progression.
 
 Feel free to explore and modify the code according to your preferences and creativity!
+
+Dependencies
+
+The game has no external dependencies. Simply run it with a Python interpreter.
+
+Contributing
+
+If you have suggestions, improvements, or bug fixes, feel free to contribute by creating a pull request. Your contributions are highly appreciated!
