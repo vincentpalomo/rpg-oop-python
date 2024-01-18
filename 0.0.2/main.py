@@ -1,6 +1,7 @@
 import time
 import os
 from character import Hero, Enemy
+from loot import Loot
 
 
 class GameLoop:
@@ -59,6 +60,10 @@ class GameLoop:
         print()
         self.hero.display_health()
         self.enemy.display_health()
+        loot = Loot()
+        get_loot = loot.get_random_loot()
+        print(f'You obtained a(n) {get_loot.name}!')
+        
 
     def start_game(self):
         while True:
