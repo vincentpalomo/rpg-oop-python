@@ -26,8 +26,8 @@ python main.py
 
 Gameplay
 
-    ~ Your hero will face off against <del>various enemies</del> in a battle of <del>strategy and strength</del>.
-    ~ Defeat enemies to progress through <del>stages</del> and earn loot.
+    ~ Your hero will face off against <strike>various enemies</strike> in a battle of <strike>strategy and strength</strike>.
+    ~ Defeat enemies to progress through <strike>stages</strike> and earn loot.
     ~ Choose whether to equip the obtained loot or continue the journey without it.
 
 Code Structure
