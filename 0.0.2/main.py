@@ -11,17 +11,21 @@ class GameLoop:
     def battle(self):
         os.system('clear')
         print()
-        print(f'{"~" * 10} {self.hero.name} vs {self.enemy.name} {"~" * 10}')
+        print(f'      {"~" * 10} {self.hero.name} vs {self.enemy.name} {"~" * 10}')
         print()
-        print(f'{"~" * 10} Prepare for battle! {"~" * 10}')
+        print(f'    {"~" * 10} Prepare for battle! {"~" * 10}')
         time.sleep(2)
 
         while self.hero.is_alive() and self.enemy.is_alive():
             os.system('clear')
             print()
             self.hero.display_health()
+            if self.hero.weapon is not None:
+                print(f'        Current base damage: {self.hero.damage + self.hero.weapon.damage}')
+            else:
+                print(f'        Current base damage: {self.hero.damage}')
             self.enemy.display_health()
-            print(f'Enemy current base damage: {self.enemy.damage}')
+            print(f'        Enemy current base damage: {self.enemy.damage}')
 
             print()
             hero_damage = self.hero.attack()
@@ -30,15 +34,15 @@ class GameLoop:
 
             self.enemy.take_damage(hero_damage)
             if self.hero.weapon is not None:
-                print(f'{self.hero.name} deals {hero_damage} to {self.enemy.name} with {self.hero.weapon.name}!')
+                print(f'        {self.hero.name} deals {hero_damage} to {self.enemy.name} with {self.hero.weapon.name}!')
             else:
-                print(f'{self.hero.name} deals {hero_damage} to {self.enemy.name}!')
+                print(f'        {self.hero.name} deals {hero_damage} to {self.enemy.name}!')
             time.sleep(1)
 
             if not self.enemy.is_alive():
                 os.system('clear')
                 print()
-                print(f'{"~" * 10} {self.enemy.name} has been defeated! 💀 {"~" * 10}')
+                print(f'    {"~" * 10} {self.enemy.name} has been defeated! 💀 {"~" * 10}')
                 self.enemy.increase_damage()
                 time.sleep(2)
                 
@@ -46,33 +50,33 @@ class GameLoop:
                 loot = Loot()
                 get_loot = loot.get_random_loot()
                 print()
-                print(f'You obtained a(n) {get_loot.name}! +{get_loot.damage} damage')
+                print(f'        You obtained a(n) {get_loot.name}! +{get_loot.damage} damage')
                 print()
-                answer = input('Do you want to equip the loot? (yes/no): ')
+                answer = input('        Do you want to equip the loot? (yes/no): ')
                 if answer.lower() == 'yes':
                   hero.equip(get_loot)
                 else:
                   print()
-                  print(f'The loot was not equipped.')
+                  print(f'      The loot was not equipped.')
                 time.sleep(2)
                 break
 
             self.hero.take_damage(enemy_damage)
-            print(f'{self.enemy.name} deals {enemy_damage} to {self.hero.name}!')
+            print(f'        {self.enemy.name} deals {enemy_damage} to {self.hero.name}!')
             time.sleep(1)
 
             if not self.hero.is_alive():
                 os.system('clear')
                 print()
-                print(f'{"~" * 10} {self.hero.name} has been defeated! 💀 {"~" * 10}')
+                print(f'        {"~" * 10} {self.hero.name} has been defeated! 💀 {"~" * 10}')
                 time.sleep(2)
 
                 os.system('clear')
                 print()
-                print(f'{"~" * 10} YOU LOSE {"~" * 10}')
+                print(f'        {"~" * 10} YOU LOSE {"~" * 10}')
                 if self.hero.weapon is not None:
                   print()
-                  print(f'Your weapon ({self.hero.weapon.name}) has been lost!')
+                  print(f'      Your weapon ({self.hero.weapon.name}) has been lost!')
                   self.hero.player_down()
                   self.enemy.reset_damage()
                   time.sleep(2)
@@ -80,11 +84,11 @@ class GameLoop:
                 break
 
             print()
-            input('Press any button to continue...')
+            input('     Press any button to continue...')
 
         os.system('clear')
         print()
-        print(f'Stage Complete!')
+        print(f'            Stage Complete!')
         print()
         self.hero.display_health()
         self.enemy.display_health()
@@ -94,13 +98,13 @@ class GameLoop:
         while True:
             os.system('clear')
             print()
-            print('Welcome to Mystical Realms ⚔')
+            print('             Welcome to Mystical Realms ⚔')
             print()
-            input('Press Enter to Start!')
+            input('                 Press Enter to Start!')
             self.battle()
 
             print()
-            play_again = input('Do you want to play again? (yes/no): ')
+            play_again = input('    Do you want to play again? (yes/no): ')
 
             if play_again.lower() != 'yes':
                 break

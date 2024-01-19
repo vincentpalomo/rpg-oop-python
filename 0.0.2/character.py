@@ -12,15 +12,13 @@ class Character:
     def attack(self) -> None:
         if self.weapon != None:
             base_damage = self.damage + self.weapon.damage
-            # print(f'Weapon Bonus Damage {base_damage}')
         else:
             base_damage = self.damage
-            # print(f'Base Damage {base_damage}')
         is_critical = random.random() < 0.1
 
         if is_critical:
-            print(f'!CRITICAL HIT!')
-            print(f'{self.name} gained extra damage!')
+            print(f'             !CRITICAL HIT!          ')
+            print(f'        {self.name} gained extra damage!')
             print()
 
             return int(base_damage * 1.5)
@@ -41,8 +39,8 @@ class Character:
         remaining_health = int((self.health / 100) * bar_length)
         health_bar = '|' + '█' * remaining_health + \
             '-' * (bar_length - remaining_health) + '|'
-        print(f'{self.name}`s HP:')
-        print(f'{health_bar} {self.health}/{self.max_health}')
+        print(f'    {self.name}`s HP:')
+        print(f'    {health_bar} {self.health}/{self.max_health}')
 
     def reset(self) -> None:
         self.health = self.max_health
@@ -55,7 +53,7 @@ class Hero(Character):
     def equip(self, weapon) -> None:
         self.weapon = weapon
         print()
-        print(f'{self.name} equipped a(n) {self.weapon.name}!')
+        print(f'        {self.name} equipped a(n) {self.weapon.name}!')
 
     def player_down(self) -> None:
         self.weapon = None
@@ -71,7 +69,7 @@ class Enemy(Character):
     def increase_damage(self) -> None:
         self.damage += 5
         print()
-        print(f'{"~" * 10} Enemy damage increased by {5} {"~" * 10}')
+        print(f'    {"~" * 10} Enemy damage increased by {5} {"~" * 10}')
     
     def reset_damage(self) -> None:
         self.damage = 25
