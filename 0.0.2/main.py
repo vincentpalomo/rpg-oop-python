@@ -46,7 +46,7 @@ class GameLoop:
                 loot = Loot()
                 get_loot = loot.get_random_loot()
                 print()
-                print(f'You obtained a(n) {get_loot.name}!')
+                print(f'You obtained a(n) {get_loot.name}! +{get_loot.damage} damage')
                 print()
                 answer = input('Do you want to equip the loot? (yes/no): ')
                 if answer.lower() == 'yes':
