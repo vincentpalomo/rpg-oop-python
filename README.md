@@ -50,3 +50,5 @@ The game has no external dependencies. Simply run it with a Python interpreter.
 Contributing
 
 If you have suggestions, improvements, or bug fixes, feel free to contribute by creating a pull request. Your contributions are highly appreciated!
+
+`note for future improvements`
