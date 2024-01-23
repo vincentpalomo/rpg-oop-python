@@ -90,6 +90,9 @@ class GameLoop:
         print()
         print(f'            Stage Complete!')
         print()
+        if self.hero.weapon is not None:
+            print(f'    Current weapon: {self.hero.weapon.name} +{self.hero.weapon.damage} damage       ')
+            print()
         self.hero.display_health()
         self.enemy.display_health()
         
