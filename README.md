@@ -55,3 +55,4 @@ If you have suggestions, improvements, or bug fixes, feel free to contribute by 
 `future features:`
 `hello from nvim`
 `another add inside nvim`
+<!-- `here is another comment inside nvim` -->
