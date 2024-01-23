@@ -53,3 +53,4 @@ If you have suggestions, improvements, or bug fixes, feel free to contribute by 
 
 `note for future improvements`
 `future features:`
+`hello from nvim`
