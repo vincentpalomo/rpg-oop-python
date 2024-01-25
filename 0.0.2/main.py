@@ -1,7 +1,10 @@
 import time
 import os
+from pyfiglet import Figlet
 from character import Hero, Enemy
 from loot import Loot
+
+custom_fig = Figlet(font='roman')
 
 class GameLoop:
     def __init__(self, hero, enemy) -> None:
@@ -101,9 +104,12 @@ class GameLoop:
         while True:
             os.system('clear')
             print()
-            print('             Welcome to Mystical Realms ⚔')
-            print()
-            input('                 Press Enter to Start!')
+            # print('             Welcome to Mystical Realms ⚔')
+            print(custom_fig.renderText('Mystical Realms'))
+            # print()
+            print('                  Press Enter to Start!       ')
+            input()
+            # input('                Press Enter to Start!       ')
             self.battle()
 
             print()
