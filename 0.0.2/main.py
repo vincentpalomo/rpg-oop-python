@@ -18,7 +18,7 @@ class GameLoop:
         print(f'      {"~" * 10} {self.hero.name} vs {self.enemy.name} {"~" * 10}')
         print()
         # print(f'    {"~" * 10} Prepare for battle! {"~" * 10}')
-        print(bubble.renderText('Prepare for battle'))
+        print(bubble.renderText('     Prepare for battle      '))
         time.sleep(2)
 
         while self.hero.is_alive() and self.enemy.is_alive():
@@ -79,7 +79,7 @@ class GameLoop:
                 os.system('clear')
                 print()
                 # print(f'        {"~" * 10} YOU LOSE {"~" * 10}')
-                print(bubble.renderText('You Lose!'))
+                print(bubble.renderText('       You Lose       '))
                 if self.hero.weapon is not None:
                   print()
                   print(f'      Your weapon ({self.hero.weapon.name}) has been lost!')
@@ -95,7 +95,7 @@ class GameLoop:
         os.system('clear')
         print()
         # print(f'            Stage Complete!')
-        print(bubble.renderText('Stage Complete'))
+        print(bubble.renderText('       Stage Complete      '))
         print()
         if self.hero.weapon is not None:
             print(f'    Current weapon: {self.hero.weapon.name} +{self.hero.weapon.damage} damage       ')

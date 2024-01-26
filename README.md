@@ -54,3 +54,5 @@ If you have suggestions, improvements, or bug fixes, feel free to contribute by 
 `note for future improvements`
 
 > add images for the readme
+> add stage number
+> add different kinds of enemies
