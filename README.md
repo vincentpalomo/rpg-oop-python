@@ -15,7 +15,7 @@ git clone https://github.com/vincentpalomo/rpg-oop-python
 2. Navigate to the project directory:
 
 ```
-cd your-repository/0.0.2
+cd your-repository/0.0.3
 ```
 
 3. Run the game:
@@ -53,6 +53,7 @@ If you have suggestions, improvements, or bug fixes, feel free to contribute by 
 
 `note for future improvements`
 
+> version 0.0.3
 > add images for the readme
 > add stage number
 > add different kinds of enemies
