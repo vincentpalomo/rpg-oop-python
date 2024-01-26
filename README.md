@@ -53,6 +53,9 @@ If you have suggestions, improvements, or bug fixes, feel free to contribute by 
 
 `images`
 Main Title
+
+---
+
 ![main title](./images/main_title.png)
 ![battle](./images/Battle.png)
 ![critical and health bar](./images/critical_and_healthbar.png)
