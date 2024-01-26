@@ -51,6 +51,9 @@ Contributing
 
 If you have suggestions, improvements, or bug fixes, feel free to contribute by creating a pull request. Your contributions are highly appreciated!
 
+`images`
+![main title](./images/main_title.png)
+
 `note for future improvements`
 
 > - version 0.0.3
