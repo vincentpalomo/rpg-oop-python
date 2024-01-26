@@ -11,13 +11,18 @@ class GameLoop:
     def __init__(self, hero, enemy) -> None:
         self.hero = hero
         self.enemy = enemy
+        self.stage = 1
+
+    def increment_stage(self):
+        self.stage += 1
 
     def battle(self):
         os.system('clear')
         print()
         print(f'      {"~" * 10} {self.hero.name} vs {self.enemy.name} {"~" * 10}')
         print()
-        # print(f'    {"~" * 10} Prepare for battle! {"~" * 10}')
+        print(f'                    Stage: {self.stage}                      ')
+        print()
         print(bubble.renderText('     Prepare for battle      '))
         time.sleep(2)
 
@@ -49,6 +54,7 @@ class GameLoop:
                 print()
                 print(f'    {"~" * 10} {self.enemy.name} has been defeated! 💀 {"~" * 10}')
                 self.enemy.increase_damage()
+                self.increment_stage()
                 time.sleep(2)
                 
                 os.system('clear')
@@ -83,9 +89,13 @@ class GameLoop:
                 if self.hero.weapon is not None:
                   print()
                   print(f'      Your weapon ({self.hero.weapon.name}) has been lost!')
+                  print()
                   self.hero.player_down()
                   self.enemy.reset_damage()
                   time.sleep(2)
+                print()
+                print(f'          You made it to stage: {self.stage}      ') 
+                self.stage = 1
                 time.sleep(2)
                 break
 
