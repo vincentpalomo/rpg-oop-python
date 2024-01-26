@@ -1,5 +1,6 @@
 import time
 import os
+import cutie
 from pyfiglet import Figlet
 from character import Hero, Enemy 
 from enemy import Random_Enemy 
@@ -13,7 +14,7 @@ class GameLoop:
         self.hero = hero
         self.enemy = enemy
         self.stage = 1
-        self.enemy_damage_increase = 5
+        self.enemy_damage_increase = 0
 
     def increment_stage(self):
         self.stage += 1
@@ -25,6 +26,10 @@ class GameLoop:
         print()
         print(f'                    Stage: {self.stage}                      ')
         print()
+        if self.enemy_damage_increase != 0:
+            print(f'     Enemy damage increased by: +{self.enemy_damage_increase}')
+            print() 
+
         print(bubble.renderText('     Prepare for battle      '))
         time.sleep(2)
 
@@ -55,7 +60,8 @@ class GameLoop:
                 os.system('clear')
                 print()
                 print(f'    {"~" * 10} {self.enemy.name} has been defeated! 💀 {"~" * 10}')
-                self.enemy.increase_damage()
+                # self.enemy.increase_damage()
+                self.enemy_damage_increase += 5
                 self.increment_stage()
                 time.sleep(2)
                 
@@ -122,23 +128,48 @@ class GameLoop:
             print()
             print(custom_fig.renderText('Mystical Realms'))
             # print()
-            print('                  Press Enter to Start!       ')
-            input()
-            self.battle()
+            # if self.enemy_damage_increase != 0:
+            #     print(f'     Enemy damage increased by: +{self.enemy_damage_increase}')
+            #     print()
+            # print('                  Press Enter to Start!       ')
+            # input()
+            if self.stage == 1:
+                if cutie.prompt_yes_or_no('Start New Game', default_is_yes=True):
+                    self.battle()
+                else:
+                    break
+            else:
+                if cutie.prompt_yes_or_no('Continue to next stage?', default_is_yes=True):
+                    self.battle()
+                else:
+                    break
 
             print()
-            play_again = input('    Do you want to play again? (yes/no): ')
-
-            if play_again.lower() != 'yes':
-                break
-            else:
-                os.system('clear')
+            # play_again = input('    Do you want to play again? (yes/no): ')
+            if cutie.prompt_yes_or_no('     Do you want to play again?', default_is_yes=True):
+                # os.system('clear')
+                print('selected yes')
                 self.hero.reset()
                 self.enemy.reset()
                 random_enemy = Random_Enemy()
                 new_enemy = random_enemy.get_enemy()
-                next_enemy = Enemy(name=new_enemy.name, health=new_enemy.health, damage=new_enemy.damage)
-                self.enemy = next_enemy 
+                print(new_enemy)
+                print(self.enemy_damage_increase)
+                next_enemy = Enemy(name=new_enemy.name, health=new_enemy.health, damage=new_enemy.damage + self.enemy_damage_increase)
+                self.enemy = next_enemy
+            else:
+                break
+
+            # if play_again.lower() != 'yes':
+            #     break
+            # else:
+            #     os.system('clear')
+            #     self.hero.reset()
+            #     self.enemy.reset()
+            #     random_enemy = Random_Enemy()
+            #     new_enemy = random_enemy.get_enemy()
+            #     next_enemy = Enemy(name=new_enemy.name, health=new_enemy.health, damage=new_enemy.damage)
+            #     self.enemy = next_enemy 
 
                 
 
