@@ -73,3 +73,7 @@ class Enemy(Character):
     
     def reset_damage(self) -> None:
         self.damage = 25
+
+
+# enemies
+goblin = Enemy(name='Goblin', health=100, damage=15)
