@@ -13,6 +13,7 @@ class GameLoop:
         self.hero = hero
         self.enemy = enemy
         self.stage = 1
+        self.enemy_damage_increase = 5
 
     def increment_stage(self):
         self.stage += 1

@@ -76,6 +76,7 @@ class Enemy(Character):
 
 
 # enemies
+orc = Enemy(name='Orc', health=100, damage=10)
 goblin = Enemy(name='Goblin', health=100, damage=15)
 dark_elf = Enemy(name='Dark Elf', health=100, damage=30)
 theif = Enemy(name='Theif', health=100, damage=25)
