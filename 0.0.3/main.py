@@ -1,7 +1,8 @@
 import time
 import os
 from pyfiglet import Figlet
-from character import Hero, Enemy
+from character import Hero, Enemy 
+from enemy import Random_Enemy 
 from loot import Loot
 
 custom_fig = Figlet(font='roman')
@@ -133,11 +134,21 @@ class GameLoop:
                 os.system('clear')
                 self.hero.reset()
                 self.enemy.reset()
+                random_enemy = Random_Enemy()
+                new_enemy = random_enemy.get_enemy()
+                next_enemy = Enemy(name=new_enemy.name, health=new_enemy.health, damage=new_enemy.damage)
+                enemy = next_enemy 
+
                 
 
+enemies = Random_Enemy()
+print({enemies.get_enemy()})
+get_enemy = enemies.get_enemy()
+print(get_enemy.name)
 
 hero = Hero(name='Hero', health=100, damage=25)
-enemy = Enemy(name='Enemy', health=100, damage=25)
+# enemy = Enemy(name='Enemy', health=100, damage=25)
+enemy = Enemy(name=get_enemy.name, health=get_enemy.health, damage=get_enemy.damage)
 
 game = GameLoop(hero, enemy)
 game.start_game()
