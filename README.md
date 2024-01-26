@@ -79,3 +79,4 @@ If you have suggestions, improvements, or bug fixes, feel free to contribute by 
 > - add images for the readme
 > - add stage number
 > - add different kinds of enemies
+> - https://github.com/kamik423/cutie 
