@@ -137,7 +137,7 @@ class GameLoop:
                 random_enemy = Random_Enemy()
                 new_enemy = random_enemy.get_enemy()
                 next_enemy = Enemy(name=new_enemy.name, health=new_enemy.health, damage=new_enemy.damage)
-                enemy = next_enemy 
+                self.enemy = next_enemy 
 
                 
 
