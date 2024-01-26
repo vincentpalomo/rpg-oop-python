@@ -53,7 +53,7 @@ If you have suggestions, improvements, or bug fixes, feel free to contribute by 
 
 `note for future improvements`
 
-> version 0.0.3
-> add images for the readme
-> add stage number
-> add different kinds of enemies
+> - version 0.0.3
+> - add images for the readme
+> - add stage number
+> - add different kinds of enemies
