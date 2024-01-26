@@ -55,6 +55,7 @@ If you have suggestions, improvements, or bug fixes, feel free to contribute by 
 
 ---
 
+<center>
 ![main title](./images/main_title.png)
 ![stage](./images/stage_implementation.png)
 ![battle](./images/Battle.png)
@@ -62,6 +63,7 @@ If you have suggestions, improvements, or bug fixes, feel free to contribute by 
 ![stage winner](./images/stage_winner.png)
 ![loot drop](./images/loot_drop.png)
 ![stage loser](./images/loss_screen2.png)
+</center>
 
 `note for future improvements`
 
