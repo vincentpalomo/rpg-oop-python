@@ -64,7 +64,13 @@ If you have suggestions, improvements, or bug fixes, feel free to contribute by 
 ![stage loser](./images/loss_screen2.png) -->
 
 <p align='center'>
-    <img src='./images/Battle.png' alt='main title'>
+    <img src='./images/main_title.png' alt='main title'>
+    <img src='./images/stage_implementation.png' alt='stage'>
+    <img src='./images/Battle.png' alt='battle'>
+    <img src='./images/critical_and_healthbar.png' alt='critical and healthbar'>
+    <img src='./images/loot_drop.png' alt='loot drop'>
+    <img src='./images/stage_winner.png' alt='stage winner'>
+    <img src='./images/loss_screen2.png' alt='stage loser'>
 </p>
 
 `note for future improvements`
