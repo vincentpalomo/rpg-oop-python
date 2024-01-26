@@ -147,14 +147,11 @@ class GameLoop:
             print()
             # play_again = input('    Do you want to play again? (yes/no): ')
             if cutie.prompt_yes_or_no('     Do you want to play again?', default_is_yes=True):
-                # os.system('clear')
-                print('selected yes')
+                os.system('clear')
                 self.hero.reset()
                 self.enemy.reset()
                 random_enemy = Random_Enemy()
                 new_enemy = random_enemy.get_enemy()
-                print(new_enemy)
-                print(self.enemy_damage_increase)
                 next_enemy = Enemy(name=new_enemy.name, health=new_enemy.health, damage=new_enemy.damage + self.enemy_damage_increase)
                 self.enemy = next_enemy
             else:
