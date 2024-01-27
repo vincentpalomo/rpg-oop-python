@@ -25,4 +25,7 @@ morning_star = Weapon(name='morning star', weapon_type='blunt', damage=40)
 forged_steel_hammer = Weapon(name='forged steel hammer', weapon_type='blunt', damage=55)
 moonlight_hammer = Weapon(name='moonlight hammer', weapon_type='blunt', damage=75)
 
-get_weapons = [iron_sword, bronze_sword, silver_sword, great_sword, kingsblade, great_bow, short_bow, long_bow, recurve_bow, fists, bronze_hammer, morning_star, forged_steel_hammer, moonlight_hammer]
+# admin
+one_tap = Weapon(name='one tap', weapon_type='admin', damage=10000)
+
+get_weapons = [one_tap, iron_sword, bronze_sword, silver_sword, great_sword, kingsblade, great_bow, short_bow, long_bow, recurve_bow, fists, bronze_hammer, morning_star, forged_steel_hammer, moonlight_hammer]
