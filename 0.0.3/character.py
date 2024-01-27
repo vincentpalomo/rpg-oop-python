@@ -36,7 +36,7 @@ class Character:
 
     def display_health(self):
         bar_length = 30
-        remaining_health = int((self.health / 100) * bar_length)
+        remaining_health = int((self.health / self.max_health) * bar_length)
         health_bar = '|' + '█' * remaining_health + \
             '-' * (bar_length - remaining_health) + '|'
         print(f'    {self.name}`s HP:')
@@ -78,9 +78,11 @@ class Enemy(Character):
 # enemies
 orc = Enemy(name='Orc', health=100, damage=10)
 goblin = Enemy(name='Goblin', health=100, damage=15)
+troll = Enemy(name='Troll', health=100, damage=20)
 dark_elf = Enemy(name='Dark Elf', health=100, damage=30)
 theif = Enemy(name='Theif', health=100, damage=25)
 warlock = Enemy(name='Warlock', health=100, damage=35)
 barbarian = Enemy(name='Barbarian', health=100, damage=40)
+death_knight = Enemy(name='Death Knight', health=100, damage=45)
 
-enemies = [goblin, dark_elf, theif, warlock, barbarian]
+enemies = [goblin, dark_elf, theif, warlock, barbarian, orc, death_knight, troll]

@@ -71,12 +71,19 @@ class GameLoop:
                 print()
                 print(f'        You obtained a(n) {get_loot.name}! +{get_loot.damage} damage')
                 print()
-                answer = input('        Do you want to equip the loot? (yes/no): ')
-                if answer.lower() == 'yes':
-                  hero.equip(get_loot)
+                
+                if cutie.prompt_yes_or_no('     Do you want to equip the loot? '):
+                    hero.equip(get_loot)
                 else:
-                  print()
-                  print(f'      The loot was not equipped.')
+                    print()
+                    print(f'        The loot was not equipped.')
+
+                # answer = input('        Do you want to equip the loot? (yes/no): ')
+                # if answer.lower() == 'yes':
+                #   hero.equip(get_loot)
+                # else:
+                #   print()
+                #   print(f'      The loot was not equipped.')
                 time.sleep(2)
                 break
 
@@ -96,14 +103,15 @@ class GameLoop:
                 print(bubble.renderText('       You Lose       '))
                 if self.hero.weapon is not None:
                   print()
-                  print(f'      Your weapon ({self.hero.weapon.name}) has been lost!')
+                  print(f'  Your weapon ({self.hero.weapon.name}) has been lost!')
                   print()
                   self.hero.player_down()
                   self.enemy.reset_damage()
                   time.sleep(2)
                 print()
-                print(f'          You made it to stage: {self.stage}      ') 
+                print(f'    You made it to stage: {self.stage}      ') 
                 self.stage = 1
+                self.enemy_damage_increase = 0
                 time.sleep(2)
                 break
 
@@ -175,7 +183,7 @@ print({enemies.get_enemy()})
 get_enemy = enemies.get_enemy()
 print(get_enemy.name)
 
-hero = Hero(name='Hero', health=100, damage=25)
+hero = Hero(name='Hero', health=125, damage=25)
 # enemy = Enemy(name='Enemy', health=100, damage=25)
 enemy = Enemy(name=get_enemy.name, health=get_enemy.health, damage=get_enemy.damage)
 
