@@ -63,6 +63,8 @@ class GameLoop:
                 # self.enemy.increase_damage()
                 self.enemy_damage_increase += 5
                 self.increment_stage()
+                print(' You have gained +5 Health...')
+                self.hero.health += 5
                 time.sleep(2)
                 
                 os.system('clear')
@@ -183,7 +185,7 @@ print({enemies.get_enemy()})
 get_enemy = enemies.get_enemy()
 print(get_enemy.name)
 
-hero = Hero(name='Hero', health=125, damage=25)
+hero = Hero(name='Hero', health=100, damage=25)
 # enemy = Enemy(name='Enemy', health=100, damage=25)
 enemy = Enemy(name=get_enemy.name, health=get_enemy.health, damage=get_enemy.damage)
 
