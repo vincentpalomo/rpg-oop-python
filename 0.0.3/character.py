@@ -42,6 +42,16 @@ class Character:
         print(f'    {self.name}`s HP:')
         print(f'    {health_bar} {self.health}/{self.max_health}')
 
+    def increase_health(self):
+        self.max_health += 5
+        print()
+        print(f'    You have gained +5 health')
+
+    def increase_damage(self):
+        self.damage += 10
+        print()
+        print(f'    You have gained +10 damage')
+
     def reset(self) -> None:
         self.health = self.max_health
 
@@ -76,9 +86,9 @@ class Enemy(Character):
 
 
 # enemies
-orc = Enemy(name='Orc', health=100, damage=10)
-goblin = Enemy(name='Goblin', health=100, damage=15)
-troll = Enemy(name='Troll', health=100, damage=20)
+orc = Enemy(name='Orc', health=70, damage=10)
+goblin = Enemy(name='Goblin', health=75, damage=15)
+troll = Enemy(name='Troll', health=80, damage=20)
 dark_elf = Enemy(name='Dark Elf', health=100, damage=30)
 theif = Enemy(name='Theif', health=100, damage=25)
 warlock = Enemy(name='Warlock', health=100, damage=35)

@@ -15,6 +15,8 @@ class GameLoop:
         self.enemy = enemy
         self.stage = 1
         self.enemy_damage_increase = 0
+        self.enemy_health_increase = 0
+        self.loss = False
 
     def increment_stage(self):
         self.stage += 1
@@ -28,7 +30,10 @@ class GameLoop:
         print()
         if self.enemy_damage_increase != 0:
             print(f'     Enemy damage increased by: +{self.enemy_damage_increase}')
-            print() 
+            print()
+
+        if self.enemy_health_increase != 0:
+            print(f'     Enemy health increased by: +{self.enemy_health_increase}')
 
         print(bubble.renderText('     Prepare for battle      '))
         time.sleep(2)
@@ -61,11 +66,21 @@ class GameLoop:
                 print()
                 print(f'    {"~" * 10} {self.enemy.name} has been defeated! 💀 {"~" * 10}')
                 # self.enemy.increase_damage()
-                self.enemy_damage_increase += 5
+                if self.stage % 2 == 1:
+                    print()
+                    print(f'    enemy has gained +5 damage!')
+                    self.enemy_damage_increase += 5
+                if self.stage % 5 == 0:
+                    print()
+                    print(f'    enemy has gained +15 health!')
+                    self.enemy_health_increase += 15
                 self.increment_stage()
-                print(' You have gained +5 Health...')
-                self.hero.health += 5
-                time.sleep(2)
+
+                if self.stage % 10 == 0:
+                    self.hero.increase_damage()
+
+                self.hero.increase_health()
+                time.sleep(3)
                 
                 os.system('clear')
                 loot = Loot()
@@ -113,7 +128,9 @@ class GameLoop:
                 print()
                 print(f'    You made it to stage: {self.stage}      ') 
                 self.stage = 1
+                self.loss = True
                 self.enemy_damage_increase = 0
+                self.enemy_health_increase = 0
                 time.sleep(2)
                 break
 
@@ -130,6 +147,9 @@ class GameLoop:
             print()
         self.hero.display_health()
         self.enemy.display_health()
+        if self.loss == True:
+            self.loss = False
+            self.hero.max_health = 100
         
 
     def start_game(self):
@@ -162,7 +182,7 @@ class GameLoop:
                 self.enemy.reset()
                 random_enemy = Random_Enemy()
                 new_enemy = random_enemy.get_enemy()
-                next_enemy = Enemy(name=new_enemy.name, health=new_enemy.health, damage=new_enemy.damage + self.enemy_damage_increase)
+                next_enemy = Enemy(name=new_enemy.name, health=new_enemy.health + self.enemy_health_increase, damage=new_enemy.damage + self.enemy_damage_increase)
                 self.enemy = next_enemy
             else:
                 break
