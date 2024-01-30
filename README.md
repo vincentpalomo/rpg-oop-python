@@ -71,4 +71,7 @@ If you have suggestions, improvements, or bug fixes, feel free to contribute by 
 > - add images for the readme
 > - add stage number
 > - add different kinds of enemies
+> - implement yes or no prompt
+> - implement flee mechanic
+> - update stats
 <!-- > - https://github.com/kamik423/cutie  -->
