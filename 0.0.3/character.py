@@ -49,7 +49,6 @@ class Character:
 
     def increase_damage(self):
         self.damage += 10
-        print()
         print(f'    You have gained +10 damage')
 
     def reset(self) -> None:
@@ -67,6 +66,7 @@ class Hero(Character):
 
     def player_down(self) -> None:
         self.weapon = None
+        self.damage = 25
 
     def reset(self):
         super().reset()

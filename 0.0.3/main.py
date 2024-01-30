@@ -14,6 +14,7 @@ class GameLoop:
         self.hero = hero
         self.enemy = enemy
         self.stage = 1
+        self.highest_stage = 0
         self.enemy_damage_increase = 0
         self.enemy_health_increase = 0
         self.loss = False
@@ -30,10 +31,16 @@ class GameLoop:
         print()
         if self.enemy_damage_increase != 0:
             print(f'     Enemy damage increased by: +{self.enemy_damage_increase}')
-            print()
 
         if self.enemy_health_increase != 0:
             print(f'     Enemy health increased by: +{self.enemy_health_increase}')
+
+        if self.hero.max_health > 100:
+            print()
+            print(f'     Current health boost: +{self.hero.health - 100}')
+
+        if self.hero.damage > 25:
+            print(f'     Current damage boost: +{self.hero.damage - 25}')
 
         print(bubble.renderText('     Prepare for battle      '))
         time.sleep(2)
@@ -71,7 +78,6 @@ class GameLoop:
                     print(f'    enemy has gained +5 damage!')
                     self.enemy_damage_increase += 5
                 if self.stage % 5 == 0:
-                    print()
                     print(f'    enemy has gained +15 health!')
                     self.enemy_health_increase += 15
                 self.increment_stage()
@@ -80,6 +86,7 @@ class GameLoop:
                     self.hero.increase_damage()
 
                 self.hero.increase_health()
+                self.highest_stage += 1
                 time.sleep(3)
                 
                 os.system('clear')
@@ -88,8 +95,11 @@ class GameLoop:
                 print()
                 print(f'        You obtained a(n) {get_loot.name}! +{get_loot.damage} damage')
                 print()
+                if self.hero.weapon is not None:
+                     print(f'   Current weapon equipped: {self.hero.weapon.name} +{self.hero.weapon.damage} damage')
+                     print()
                 
-                if cutie.prompt_yes_or_no('     Do you want to equip the loot? '):
+                if cutie.prompt_yes_or_no('     Do you want to equip the loot? ', char_prompt=False):
                     hero.equip(get_loot)
                 else:
                     print()
@@ -126,7 +136,8 @@ class GameLoop:
                   self.enemy.reset_damage()
                   time.sleep(2)
                 print()
-                print(f'    You made it to stage: {self.stage}      ') 
+                print(f'    You haven fallen at stage: {self.stage}      ') 
+                self.highest_stage += 1
                 self.stage = 1
                 self.loss = True
                 self.enemy_damage_increase = 0
@@ -140,7 +151,11 @@ class GameLoop:
         os.system('clear')
         print()
         # print(f'            Stage Complete!')
-        print(bubble.renderText('       Stage Complete      '))
+        if self.highest_stage <= 1:
+            print(bubble.renderText(f'      Stage 1 Complete        '))
+        else:
+            print(bubble.renderText(f'       Stage {self.highest_stage} Complete      '))
+        
         print()
         if self.hero.weapon is not None:
             print(f'    Current weapon: {self.hero.weapon.name} +{self.hero.weapon.damage} damage       ')
@@ -150,6 +165,7 @@ class GameLoop:
         if self.loss == True:
             self.loss = False
             self.hero.max_health = 100
+            self.highest_stage = 0
         
 
     def start_game(self):
@@ -164,19 +180,19 @@ class GameLoop:
             # print('                  Press Enter to Start!       ')
             # input()
             if self.stage == 1:
-                if cutie.prompt_yes_or_no('Start New Game', default_is_yes=True):
+                if cutie.prompt_yes_or_no('Start New Game', default_is_yes=True, char_prompt=False):
                     self.battle()
                 else:
                     break
             else:
-                if cutie.prompt_yes_or_no('Continue to next stage?', default_is_yes=True):
+                if cutie.prompt_yes_or_no('Continue to next stage?', default_is_yes=True, char_prompt=False):
                     self.battle()
                 else:
                     break
 
             print()
             # play_again = input('    Do you want to play again? (yes/no): ')
-            if cutie.prompt_yes_or_no('     Do you want to play again?', default_is_yes=True):
+            if cutie.prompt_yes_or_no('     Do you want to play again?', default_is_yes=True, char_prompt=False):
                 os.system('clear')
                 self.hero.reset()
                 self.enemy.reset()
