@@ -1,6 +1,5 @@
 import random
 
-
 class Character:
     def __init__(self, name, health, damage, weapon=None) -> None:
         self.name = name
@@ -89,10 +88,12 @@ class Enemy(Character):
 orc = Enemy(name='Orc', health=70, damage=10)
 goblin = Enemy(name='Goblin', health=75, damage=15)
 troll = Enemy(name='Troll', health=80, damage=20)
-dark_elf = Enemy(name='Dark Elf', health=100, damage=30)
+dark_elf = Enemy(name='Dark Elf', health=110, damage=30)
 theif = Enemy(name='Theif', health=100, damage=25)
 warlock = Enemy(name='Warlock', health=100, damage=35)
-barbarian = Enemy(name='Barbarian', health=100, damage=40)
-death_knight = Enemy(name='Death Knight', health=100, damage=45)
+barbarian = Enemy(name='Barbarian', health=150, damage=40)
+death_knight = Enemy(name='Death Knight', health=120, damage=45)
+sun_worshiper = Enemy(name='Sun Worshiper', health=125, damage=50)
+undead_rogue = Enemy(name='Undead Rogue', health=95, damage=25)
 
-enemies = [goblin, dark_elf, theif, warlock, barbarian, orc, death_knight, troll]
+enemies = [goblin, dark_elf, theif, warlock, barbarian, orc, death_knight, troll, sun_worshiper, undead_rogue]
