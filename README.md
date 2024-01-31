@@ -74,4 +74,6 @@ If you have suggestions, improvements, or bug fixes, feel free to contribute by 
 > - implement yes or no prompt
 > - implement flee mechanic
 > - update stats
+> - option to select a certain loot
+> - set enemy levels - beginner - intermediate - hard - boss
 <!-- > - https://github.com/kamik423/cutie  -->
