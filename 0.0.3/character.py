@@ -112,6 +112,9 @@ hell_hound = Enemy(name='Hell Hound', health=200, damage=30)
 ancient_guard = Enemy(name='Ancient Guard', health=250, damage=25)
 mystic_lord = Enemy(name='Mystic Lord', health=300, damage=35)
 
+# unbeatable
+enigma = Enemy(name='Enigma', health=1000, damage=9999)
+
 enemies = [goblin, dark_elf, theif, warlock, barbarian, orc, death_knight, troll, sun_worshiper, undead_rogue]
 
 easy_enemies = [goblin, orc, troll, theif]
@@ -120,3 +123,5 @@ hard_enemies = [barbarian, death_knight, sun_worshiper]
 elite_enemies = [spectral_entity, forsaken_priest, nightwalker]
 
 bosses = [hell_hound, ancient_guard, mystic_lord]
+
+unbeatable = [enigma]
