@@ -97,3 +97,7 @@ sun_worshiper = Enemy(name='Sun Worshiper', health=125, damage=50)
 undead_rogue = Enemy(name='Undead Rogue', health=95, damage=25)
 
 enemies = [goblin, dark_elf, theif, warlock, barbarian, orc, death_knight, troll, sun_worshiper, undead_rogue]
+
+easy_enemies = [goblin, orc, troll, theif]
+medium_enemies = [dark_elf, warlock, undead_rogue]
+hard_enemies = [barbarian, death_knight, sun_worshiper]
