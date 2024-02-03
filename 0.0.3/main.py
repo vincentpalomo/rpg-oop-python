@@ -197,7 +197,7 @@ class GameLoop:
                 self.hero.reset()
                 self.enemy.reset()
                 random_enemy = Random_Enemy()
-                new_enemy = random_enemy.get_enemy()
+                new_enemy = random_enemy.get_enemy(self.stage)
                 next_enemy = Enemy(name=new_enemy.name, health=new_enemy.health + self.enemy_health_increase, damage=new_enemy.damage + self.enemy_damage_increase)
                 self.enemy = next_enemy
             else:
@@ -217,8 +217,8 @@ class GameLoop:
                 
 
 enemies = Random_Enemy()
-print({enemies.get_enemy()})
-get_enemy = enemies.get_enemy()
+print({enemies.get_enemy(1)})
+get_enemy = enemies.get_enemy(1)
 print(get_enemy.name)
 
 hero = Hero(name='Hero', health=100, damage=25)
