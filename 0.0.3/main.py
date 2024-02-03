@@ -42,7 +42,14 @@ class GameLoop:
         if self.hero.damage > 25:
             print(f'     Current damage boost: +{self.hero.damage - 25}')
 
-        print(bubble.renderText('     Prepare for battle      '))
+        print()
+        # print(bubble.renderText('     Prepare for battle      '))
+
+        if self.stage % 10 == 0:
+            print(bubble.renderText('   Boss Battle     '))
+        else:
+            print(bubble.renderText('     Prepare for battle      '))
+            
         time.sleep(2)
 
         while self.hero.is_alive() and self.enemy.is_alive():

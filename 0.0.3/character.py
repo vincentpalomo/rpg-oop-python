@@ -85,16 +85,27 @@ class Enemy(Character):
 
 
 # enemies
+        
+# easy
 orc = Enemy(name='Orc', health=70, damage=10)
 goblin = Enemy(name='Goblin', health=75, damage=15)
 troll = Enemy(name='Troll', health=80, damage=20)
-dark_elf = Enemy(name='Dark Elf', health=110, damage=30)
 theif = Enemy(name='Theif', health=100, damage=25)
+
+# medium
+dark_elf = Enemy(name='Dark Elf', health=110, damage=30)
 warlock = Enemy(name='Warlock', health=100, damage=35)
+undead_rogue = Enemy(name='Undead Rogue', health=95, damage=25)
+
+# hard
 barbarian = Enemy(name='Barbarian', health=150, damage=40)
 death_knight = Enemy(name='Death Knight', health=120, damage=45)
 sun_worshiper = Enemy(name='Sun Worshiper', health=125, damage=50)
-undead_rogue = Enemy(name='Undead Rogue', health=95, damage=25)
+
+# elite
+spectral_entity = Enemy(name='Spectral Entity', health=200, damage=50)
+forsaken_priest = Enemy(name='Forsaken Priest', health=225, damage=55)
+nightwalker = Enemy(name='Nightwalker', health=250, damage=60)
 
 # boss
 hell_hound = Enemy(name='Hell Hound', health=200, damage=30)
@@ -106,5 +117,6 @@ enemies = [goblin, dark_elf, theif, warlock, barbarian, orc, death_knight, troll
 easy_enemies = [goblin, orc, troll, theif]
 medium_enemies = [dark_elf, warlock, undead_rogue]
 hard_enemies = [barbarian, death_knight, sun_worshiper]
+elite_enemies = [spectral_entity, forsaken_priest, nightwalker]
 
 bosses = [hell_hound, ancient_guard, mystic_lord]

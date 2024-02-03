@@ -1,5 +1,5 @@
 import random
-from character import Enemy, enemies, easy_enemies, medium_enemies, hard_enemies, bosses
+from character import Enemy, enemies, easy_enemies, medium_enemies, hard_enemies, elite_enemies, bosses
 
 class Random_Enemy:
     def __init__(self) -> None:
@@ -22,6 +22,10 @@ class Random_Enemy:
             self.enemies = hard_enemies
         elif stage == 30:
             self.enemies = bosses
+        elif stage > 30 and stage < 40:
+            self.enemies = elite_enemies
+        elif stage == 40:
+            self. enemies = bosses
 
         random_enemy = random.choice(self.enemies)
         return Enemy(
