@@ -72,8 +72,14 @@ If you have suggestions, improvements, or bug fixes, feel free to contribute by 
 > - add stage number
 > - add different kinds of enemies
 > - implement yes or no prompt
-> - implement flee mechanic
-> - update stats
-> - option to select a certain loot
+> - update stats for all types of enemies
 > - set enemy levels - beginner - intermediate - hard - boss
+
+> - version 0.0.4
+> - implement flee mechanic
+> - option to select dropped loot from enemies
+> - implement a beginner item select
+> - implement potions for health boost or damage boost
+
+
 <!-- > - https://github.com/kamik423/cutie  -->
