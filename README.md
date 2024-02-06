@@ -81,6 +81,6 @@ If you have suggestions, improvements, or bug fixes, feel free to contribute by 
 > - implement a beginner item select
 > - implement potions for health boost or damage boost
 > - implement a block mechanic [maybe for future major update]
-
+> - implement a hero select
 
 <!-- > - https://github.com/kamik423/cutie  -->

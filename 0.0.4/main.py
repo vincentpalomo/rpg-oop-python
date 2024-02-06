@@ -180,13 +180,8 @@ class GameLoop:
             os.system('clear')
             print()
             print(custom_fig.renderText('Mystical Realms'))
-            # print()
-            # if self.enemy_damage_increase != 0:
-            #     print(f'     Enemy damage increased by: +{self.enemy_damage_increase}')
-            #     print()
-            # print('                  Press Enter to Start!       ')
-            # input()
-            if self.stage == 1:
+
+           if self.stage == 1:
                 if cutie.prompt_yes_or_no('Start New Game', default_is_yes=True, char_prompt=False):
                     self.battle()
                 else:
