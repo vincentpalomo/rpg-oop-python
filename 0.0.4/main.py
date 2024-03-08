@@ -181,7 +181,7 @@ class GameLoop:
             print()
             print(custom_fig.renderText('Mystical Realms'))
 
-           if self.stage == 1:
+            if self.stage == 1:
                 if cutie.prompt_yes_or_no('Start New Game', default_is_yes=True, char_prompt=False):
                     self.battle()
                 else:
