@@ -27,6 +27,13 @@ class Random_Enemy:
         elif stage == 40:
             self. enemies = bosses
 
+        # if stage % 10 == 0:
+        #     self.enemies = bosses
+        # elif stage < 10:
+        #     self.enemies = easy_enemies
+        # elif stage < 20:
+        #     self.enemies = medium_enemies
+
         random_enemy = random.choice(self.enemies)
         return Enemy(
                 name=random_enemy.name,
