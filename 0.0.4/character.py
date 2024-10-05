@@ -132,6 +132,7 @@ medium_enemies = [dark_elf, warlock, undead_rogue]
 hard_enemies = [barbarian, death_knight, sun_worshiper]
 elite_enemies = [spectral_entity, forsaken_priest, nightwalker]
 mystic_enemies = [death_walker, undead_warlock, unholy_priestess]
+spectral_enemies = [void_entity, nefarious_spectre, deceitful_prince]
 
 bosses = [hell_hound, ancient_guard, mystic_lord]
 
