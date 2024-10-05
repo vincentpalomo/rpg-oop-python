@@ -107,6 +107,11 @@ spectral_entity = Enemy(name='Spectral Entity', health=200, damage=50)
 forsaken_priest = Enemy(name='Forsaken Priest', health=225, damage=55)
 nightwalker = Enemy(name='Nightwalker', health=250, damage=60)
 
+# Mystic
+death_walker = Enemy(name='Death Walker', health=250, damage=60)
+undead_warlock = Enemy(name='Undead Warlock', health=275, damage=65)
+unholy_priestess = Enemy(name='Unholy Priestess', health=300, damage=70)
+
 # boss
 hell_hound = Enemy(name='Hell Hound', health=200, damage=30)
 ancient_guard = Enemy(name='Ancient Guard', health=250, damage=25)
