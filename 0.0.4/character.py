@@ -112,6 +112,11 @@ death_walker = Enemy(name='Death Walker', health=250, damage=60)
 undead_warlock = Enemy(name='Undead Warlock', health=275, damage=65)
 unholy_priestess = Enemy(name='Unholy Priestess', health=300, damage=70)
 
+# spectral
+void_entity = Enemy(name='Void Entity', health=350, damage=75)
+nefarious_spectre = Enemy(name='Nefarious Spectre', health=375, damage=80)
+deceitful_prince = Enemy(name='Deceitful Prince', health=400, damage=100)
+
 # boss
 hell_hound = Enemy(name='Hell Hound', health=200, damage=30)
 ancient_guard = Enemy(name='Ancient Guard', health=250, damage=25)
@@ -126,6 +131,7 @@ easy_enemies = [goblin, orc, troll, theif]
 medium_enemies = [dark_elf, warlock, undead_rogue]
 hard_enemies = [barbarian, death_knight, sun_worshiper]
 elite_enemies = [spectral_entity, forsaken_priest, nightwalker]
+mystic_enemies = [death_walker, undead_warlock, unholy_priestess]
 
 bosses = [hell_hound, ancient_guard, mystic_lord]
 
