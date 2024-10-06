@@ -66,7 +66,7 @@ class GameLoop:
             print()
             hero_damage = self.hero.attack()
             enemy_damage = self.enemy.attack()
-            time.sleep(1)
+            time.sleep(.5)
 
             self.enemy.take_damage(hero_damage)
             if self.hero.weapon is not None:
