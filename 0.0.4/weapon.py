@@ -20,7 +20,7 @@ long_bow = Weapon(name='long bow', weapon_type='ranged', damage=20)
 recurve_bow = Weapon(name='recurve bow', weapon_type='ranged', damage=35)
 great_bow = Weapon(name='great bow', weapon_type='ranged', damage=40)
 master_bow = Weapon(name='master bow', weapon_type='ranged', damage=60)
-elven_bow = Weapon(name='evlen bow', weapon_type='ranged', damage=80)
+elven_bow = Weapon(name='elven bow', weapon_type='ranged', damage=80)
 star_shatter = Weapon(name='star shatter', weapon_type='ranged', damage=125)
 
 # blunt
