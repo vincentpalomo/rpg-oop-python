@@ -121,6 +121,7 @@ deceitful_prince = Enemy(name='Deceitful Prince', health=400, damage=100)
 hell_hound = Enemy(name='Hell Hound', health=200, damage=30)
 ancient_guard = Enemy(name='Ancient Guard', health=250, damage=25)
 mystic_lord = Enemy(name='Mystic Lord', health=300, damage=35)
+sun_goblin = Enemy(name='Sun Goblin', health=350, damage=40)
 
 # unbeatable
 enigma = Enemy(name='Enigma', health=1000, damage=9999)
@@ -134,6 +135,6 @@ elite_enemies = [spectral_entity, forsaken_priest, nightwalker]
 mystic_enemies = [death_walker, undead_warlock, unholy_priestess]
 spectral_enemies = [void_entity, nefarious_spectre, deceitful_prince]
 
-bosses = [hell_hound, ancient_guard, mystic_lord]
+bosses = [hell_hound, ancient_guard, mystic_lord, sun_goblin]
 
 unbeatable = [enigma]
