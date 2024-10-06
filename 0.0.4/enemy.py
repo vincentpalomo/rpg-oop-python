@@ -9,23 +9,6 @@ class Random_Enemy:
 
         if not self.enemies:
             return None
-        
-        # if stage < 10:
-        #     self.enemies = easy_enemies
-        # elif stage == 10:
-        #     self.enemies = bosses
-        # elif stage > 10 and stage < 20:
-        #     self.enemies = medium_enemies
-        # elif stage == 20:
-        #     self.enemies = bosses
-        # elif stage > 20 and stage < 30:
-        #     self.enemies = hard_enemies
-        # elif stage == 30:
-        #     self.enemies = bosses
-        # elif stage > 30 and stage < 40:
-        #     self.enemies = elite_enemies
-        # elif stage == 40:
-        #     self. enemies = bosses
 
         if stage % 10 == 0:
             self.enemies = bosses

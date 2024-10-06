@@ -153,7 +153,7 @@ class GameLoop:
                 break
 
             print()
-            input('     Press any button to continue...')
+            # input('     Press any button to continue...')
 
         os.system('clear')
         print()
