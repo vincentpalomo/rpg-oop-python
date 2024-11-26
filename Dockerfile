@@ -11,13 +11,10 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the application code from 0.1.0 directory
-COPY 0.1.0/ /app/
+COPY 0.1.0/ .
 
 # Expose port 5000
 EXPOSE 5000
-
-# Set the working directory to where app.py is located
-WORKDIR /app
 
 # Command to run the application
 CMD ["python", "app.py"]
