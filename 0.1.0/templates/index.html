@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mystical Realms</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body>
+    <div class="game-container">
+      <h1>Mystical Realms</h1>
+      <div id="stage-display">Stage: 1</div>
+
+      <div class="stats-container">
+        <div class="stats-box">
+          <h3>Hero Stats</h3>
+          <div id="weapon-equipped">Weapon: None</div>
+          <div id="weapon-damage">Weapon Damage: +0</div>
+          <div id="base-damage">Base Damage: 25</div>
+          <div id="health-bonus">Health Bonus: +0</div>
+        </div>
+        <div class="stats-box">
+          <h3>Enemy Stats</h3>
+          <div id="enemy-name-display">Name: None</div>
+          <div id="enemy-damage-display">Damage: 0</div>
+          <div id="enemy-health-display">Health: 0/0</div>
+        </div>
+      </div>
+
+      <div id="game-output"></div>
+      <div class="battle-stats">
+        <div id="hero-stats" style="visibility: hidden">
+          <div class="health-display">
+            <div class="health-bar">
+              <div class="bar-container">
+                <span class="empty" style="color: #bdc3c7">░░░░░░░░░░░░░░░░░░░░</span>
+                <span class="filled" style="color: #2ecc71">████████████████████</span>
+              </div>
+            </div>
+            <div>Hero Health: 100/100</div>
+          </div>
+        </div>
+        <div id="enemy-stats" style="visibility: hidden">Enemy Health: 100/100</div>
+      </div>
+      <div class="button-container-wrapper">
+        <div class="battle-buttons">
+          <button id="start-battle" onclick="startBattle()">Start Battle</button>
+          <button id="attack" onclick="attack()" disabled>Attack</button>
+          <button id="auto-attack" onclick="toggleAutoAttack()" disabled>Auto Attack</button>
+          <button id="flee" onclick="fleeGame()" class="flee-button" disabled>Flee Battle</button>
+        </div>
+        <div class="loot-buttons">
+          <button id="accept-loot" onclick="handleLoot('accept')" disabled>Accept Weapon</button>
+          <button id="decline-loot" onclick="handleLoot('decline')" disabled>Decline Weapon</button>
+        </div>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+  </body>
+</html>
