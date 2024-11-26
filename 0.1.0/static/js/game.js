@@ -140,7 +140,7 @@ function updateGameState(state) {
   if (state.enemy_stats) {
     document.getElementById('enemy-name-display').innerHTML = `Name: ${state.enemy_stats.name}`;
     document.getElementById('enemy-damage-display').innerHTML = `Damage: ${state.enemy_stats.damage}`;
-    document.getElementById('enemy-health-display').innerHTML = `Health: ${Math.max(0, state.enemy_stats.health)}`;
+    document.getElementById('enemy-health-display').innerHTML = `Health: ${state.enemy_stats.max_health}`;
   }
 
   // Update stats

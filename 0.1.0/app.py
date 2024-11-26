@@ -20,6 +20,7 @@ game = GameLoop(hero, enemy)
 
 @app.route('/')
 def index():
+    print("Index route accessed")
     return render_template('index.html')
 
 
