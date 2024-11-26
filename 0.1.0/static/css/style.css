@@ -5,8 +5,7 @@
 }
 
 #game-output {
-  width: 100%;
-  max-width: 600px;
+  width: 95%;
   margin: 1rem auto;
   height: clamp(150px, 30vh, 300px);
   overflow-y: auto;
