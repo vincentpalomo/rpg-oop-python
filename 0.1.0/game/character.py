@@ -70,6 +70,10 @@ class Hero(Character):
     def reset(self):
         super().reset()
 
+    def restore_health(self):
+        """Restore hero's health to maximum"""
+        self.health = self.max_health
+
 
 class Enemy(Character):
     def __init__(self, name, health, damage, weapon=None) -> None:

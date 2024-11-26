@@ -19,6 +19,7 @@ class GameLoop:
         self.enemy_damage_increase = 0
         self.enemy_health_increase = 0
         self.loss = False
+        self.flee_attempts = 2
 
     def increment_stage(self):
         self.stage += 1
@@ -61,12 +62,11 @@ class GameLoop:
             print()
             self.hero.display_health()
             if self.hero.weapon is not None:
-                print(f'        Current base damage: {
-                      self.hero.damage + self.hero.weapon.damage}')
+                print(f"        Current base damage: {self.hero.damage + self.hero.weapon.damage}")
             else:
-                print(f'        Current base damage: {self.hero.damage}')
+                print(f"        Current base damage: {self.hero.damage}")
             self.enemy.display_health()
-            print(f'        Enemy current base damage: {self.enemy.damage}')
+            print(f"        Enemy current base damage: {self.enemy.damage}")
 
             print()
             hero_damage = self.hero.attack()
@@ -75,11 +75,9 @@ class GameLoop:
 
             self.enemy.take_damage(hero_damage)
             if self.hero.weapon is not None:
-                print(f'        {self.hero.name} deals {hero_damage} to {
-                      self.enemy.name} with {self.hero.weapon.name}!')
+                print(f"        {self.hero.name} deals {hero_damage} to {self.enemy.name} with {self.hero.weapon.name}!")
             else:
-                print(f'        {self.hero.name} deals {
-                      hero_damage} to {self.enemy.name}!')
+                print(f"        {self.hero.name} deals {hero_damage} to {self.enemy.name}!")
             time.sleep(1)
 
             if not self.enemy.is_alive():
@@ -108,19 +106,17 @@ class GameLoop:
                 loot = Loot()
                 get_loot = loot.get_random_loot()
                 print()
-                print(f'        You obtained a(n) {
-                      get_loot.name}! +{get_loot.damage} damage')
+                print(f"        You obtained a(n) {get_loot.name}! +{get_loot.damage} damage")
                 print()
                 if self.hero.weapon is not None:
-                    print(f'   Current weapon equipped: {
-                          self.hero.weapon.name} +{self.hero.weapon.damage} damage')
+                    print(f"   Current weapon equipped: {self.hero.weapon.name} +{self.hero.weapon.damage} damage")
                     print()
 
                 if cutie.prompt_yes_or_no('     Do you want to equip the loot? ', char_prompt=False):
                     hero.equip(get_loot)
                 else:
                     print()
-                    print(f'        The loot was not equipped.')
+                    print(f"        The loot was not equipped.")
 
                 # answer = input('        Do you want to equip the loot? (yes/no): ')
                 # if answer.lower() == 'yes':
@@ -132,8 +128,7 @@ class GameLoop:
                 break
 
             self.hero.take_damage(enemy_damage)
-            print(f'        {self.enemy.name} deals {
-                  enemy_damage} to {self.hero.name}!')
+            print(f"        {self.enemy.name} deals {enemy_damage} to {self.hero.name}!")
             time.sleep(1)
 
             if not self.hero.is_alive():
@@ -174,13 +169,11 @@ class GameLoop:
         if self.highest_stage <= 1:
             print(bubble.renderText(f'      Stage 1 Complete        '))
         else:
-            print(bubble.renderText(f'       Stage {
-                  self.highest_stage} Complete      '))
+            print(bubble.renderText(f"       Stage {self.highest_stage} Complete      "))
 
         print()
         if self.hero.weapon is not None:
-            print(f'    Current weapon: {
-                  self.hero.weapon.name} +{self.hero.weapon.damage} damage       ')
+            print(f"    Current weapon: {self.hero.weapon.name} +{self.hero.weapon.damage} damage       ")
             print()
         self.hero.display_health()
         self.enemy.display_health()

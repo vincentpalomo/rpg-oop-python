@@ -58,6 +58,9 @@ async function handleLoot(choice) {
 
     const result = await response.json();
     updateGameState(result);
+    
+    // Automatically start next stage after loot decision
+    nextStage();
   } catch (error) {
     console.error('Error:', error);
   }
@@ -89,66 +92,83 @@ function updateGameState(state) {
   const autoAttackButton = document.getElementById('auto-attack');
   const fleeButton = document.getElementById('flee');
   const startBattleButton = document.getElementById('start-battle');
+  const stageDisplay = document.getElementById('stage-display');
 
-  if (!output || !heroStats || !enemyStats) {
-    console.error('Could not find required DOM elements');
-    return;
-  }
-
-  // Clear text if it's a boss battle
+  // Only clear the output if explicitly told to or starting new stage
   if (state.clear_text) {
     output.innerHTML = '';
   }
 
-  const timestamp = new Date().toLocaleTimeString();
-
-  // Handle message display
+  // Handle message display with timestamps
   if (state.message) {
-    const messageLines = state.message.split('\n').filter((line) => line); // Remove empty lines
-    const formattedMessage = messageLines
-      .map((line, index) => {
-        if (index === 0) {
-          return `<p>[${timestamp}] ${line}</p>`;
-        }
-        return `<p>${line}</p>`;
-      })
+    const timestamp = new Date().toLocaleTimeString();
+    const messages = state.message.split('\n').filter(msg => msg.trim() !== ''); // Remove empty messages
+    
+    // Create new formatted messages
+    const formattedMessages = messages.map(msg => {
+      // Only add timestamp to damage messages
+      if (msg.includes('deal') && msg.includes('damage')) {
+        return `[${timestamp}] ${msg}`;
+      }
+      return msg;
+    });
+    
+    // Only clear text if explicitly told to
+    if (state.clear_text) {
+      output.innerHTML = '';
+    }
+    
+    // Add new messages
+    const newMessageHTML = formattedMessages
+      .filter((msg, index, self) => self.indexOf(msg) === index) // Remove duplicates
+      .map(msg => `<p>${msg}</p>`)
       .join('');
-
-    output.innerHTML += formattedMessage;
+      
+    output.innerHTML += newMessageHTML;
+    
+    // Scroll to bottom
+    output.scrollTop = output.scrollHeight;
   }
 
-  // Update health displays with health bars
-  if (state.hero_health !== undefined) {
-    const heroHealthBar = createHealthBar(state.hero_health, state.hero_max_health);
+  // Update health displays
+  if (state.hero_health !== undefined && state.hero_max_health !== undefined) {
+    const heroHealthBar = createHealthBar(
+      state.game_over ? 0 : state.hero_health, 
+      state.hero_max_health
+    );
     heroStats.innerHTML = `
         <div class="health-display">
             ${heroHealthBar}
             <div>Hero Health: ${Math.max(0, state.hero_health)}/${state.hero_max_health}</div>
         </div>`;
+    heroStats.style.visibility = 'visible';
   }
 
-  if (state.enemy_health !== undefined) {
+  if (state.enemy_health !== undefined && state.enemy_max_health !== undefined) {
     const enemyHealthBar = createHealthBar(state.enemy_health, state.enemy_max_health);
     enemyStats.innerHTML = `
         <div class="health-display">
             ${enemyHealthBar}
             <div>${state.enemy_name}'s Health: ${Math.max(0, state.enemy_health)}/${state.enemy_max_health}</div>
         </div>`;
+    enemyStats.style.visibility = 'visible';
   }
 
-  // Update enemy stats display (without health bar)
+  // Update enemy stats display with bonuses
   if (state.enemy_stats) {
+    const healthBonus = state.enemy_health_increase || 0;
+    const damageBonus = state.enemy_damage_increase || 0;
+    
     document.getElementById('enemy-name-display').innerHTML = `Name: ${state.enemy_stats.name}`;
-    document.getElementById('enemy-damage-display').innerHTML = `Damage: ${state.enemy_stats.damage}`;
-    document.getElementById('enemy-health-display').innerHTML = `Health: ${state.enemy_stats.max_health}`;
+    document.getElementById('enemy-damage-display').innerHTML = 
+        `Damage: ${state.enemy_stats.damage}${damageBonus ? ` (+${damageBonus})` : ''}`;
+    document.getElementById('enemy-health-display').innerHTML = 
+        `Health: ${state.enemy_stats.max_health}${healthBonus ? ` (+${healthBonus})` : ''}`;
   }
 
-  // Update stats
+  // Update stage display
   if (state.stage !== undefined) {
-    const stageDisplay = document.getElementById('stage-display');
-    if (stageDisplay) {
-      stageDisplay.innerHTML = `Stage: ${state.stage}`;
-    }
+    stageDisplay.innerHTML = `Stage: ${state.stage}`;
   }
 
   // Update hero stats
@@ -159,47 +179,43 @@ function updateGameState(state) {
     document.getElementById('health-bonus').innerHTML = `Health Bonus: +${state.hero_stats.health_bonus}`;
   }
 
-  // Handle battle state and button enabling
-  if (state.battle_active !== undefined) {
-    battleActive = state.battle_active;
-    startBattleButton.disabled = battleActive;
-    
-    // Enable combat buttons only if battle is active
-    attackButton.disabled = !battleActive;
-    autoAttackButton.disabled = !battleActive;
-    fleeButton.disabled = !battleActive;
-    
-    if (!battleActive) {
-      stopAutoAttack();  // Stop auto attack if it's running
-    }
-  }
+  // Update battle state and buttons
+  battleActive = state.battle_active;
 
-  // Handle loot choice buttons
-  if (state.show_loot_choice) {
+  // Handle button states based on game state
+  if (state.game_over) {
+    // When game is over (player defeated), disable combat buttons and enable start battle
     attackButton.disabled = true;
     autoAttackButton.disabled = true;
     fleeButton.disabled = true;
-    stopAutoAttack();  // Stop auto attack if it's running
+    acceptLoot.disabled = true;
+    declineLoot.disabled = true;
+    startBattleButton.disabled = false;  // Enable start battle
+  } else if (state.victory && state.show_loot_choice) {
+    // During loot choice, disable combat buttons and enable loot buttons
+    attackButton.disabled = true;
+    autoAttackButton.disabled = true;
+    fleeButton.disabled = true;
+    startBattleButton.disabled = true;  // Disable start battle
     acceptLoot.disabled = false;
     declineLoot.disabled = false;
-  } else if (battleActive) {  // Only enable combat buttons if battle is active
+  } else if (state.battle_active) {
+    // During battle, enable combat buttons and disable others
     attackButton.disabled = false;
     autoAttackButton.disabled = false;
     fleeButton.disabled = false;
+    startBattleButton.disabled = true;  // Disable start battle
     acceptLoot.disabled = true;
     declineLoot.disabled = true;
   }
 
   // Keep battle stats visible always after first shown
   if (state.hero_health !== undefined) {
-    document.getElementById('hero-stats').style.visibility = 'visible';
+    heroStats.style.visibility = 'visible';
   }
   if (state.enemy_health !== undefined) {
-    document.getElementById('enemy-stats').style.visibility = 'visible';
+    enemyStats.style.visibility = 'visible';
   }
-
-  // Scroll to bottom
-  output.scrollTop = output.scrollHeight;
 }
 
 async function attack() {
@@ -255,10 +271,14 @@ async function fleeGame() {
     const result = await response.json();
     updateGameState(result);
 
-    // Reset button states
-    document.getElementById('attack').disabled = true;
-    document.getElementById('start-battle').disabled = false;
-    battleActive = false;
+    // Enable battle buttons since battle is active after fleeing
+    if (result.battle_active) {
+      document.getElementById('attack').disabled = false;
+      document.getElementById('auto-attack').disabled = false;
+      document.getElementById('flee').disabled = false;
+      battleActive = true;  // Make sure battleActive is set to true
+    }
+
   } catch (error) {
     console.error('Error:', error);
   }
@@ -266,11 +286,17 @@ async function fleeGame() {
 
 function toggleAutoAttack() {
   const autoAttackButton = document.getElementById('auto-attack');
-  if (!isAutoAttacking) {
+  if (!isAutoAttacking && battleActive) {  // Check if battle is active
     isAutoAttacking = true;
     autoAttackButton.textContent = 'Stop Auto';
     autoAttackButton.style.backgroundColor = '#e74c3c';
-    autoAttackInterval = setInterval(attack, 1000); // Attack every second
+    autoAttackInterval = setInterval(async () => {
+      if (battleActive) {  // Check battle is still active before each attack
+        await attack();
+      } else {
+        stopAutoAttack();  // Stop if battle ends
+      }
+    }, 1000);
   } else {
     stopAutoAttack();
   }
@@ -293,3 +319,28 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('auto-attack').disabled = true;
     document.getElementById('flee').disabled = true;
 });
+
+// Add new function to handle next stage
+async function nextStage() {
+    try {
+        const response = await fetch('/api/action', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                action: 'next_stage',
+            }),
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        battleActive = true;  // Set battle as active
+        updateGameState(result);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
