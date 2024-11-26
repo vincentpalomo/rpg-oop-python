@@ -286,6 +286,8 @@ button:disabled {
 
   .button-container-wrapper {
     margin-top: -10px;
+    gap: 0;
+    width: 100%;
   }
 
   .battle-buttons {
