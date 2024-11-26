@@ -331,6 +331,7 @@ button:disabled {
     text-align: center;
     margin: 5px auto;
     width: 100%;
+    padding: 5px;
   }
 
   h1 {
@@ -338,10 +339,16 @@ button:disabled {
     font-size: 24px;
   }
 
-  .stats-box div {
+  .stats-box {
     font-size: 14px;
-    margin: 0.25rem 0;
+    padding: 4px;
+    width: 95%;
   }
+
+  .player-stats {
+    padding: 5px;
+  }
+
 }
 
 @media screen and (max-width: 320px) {
