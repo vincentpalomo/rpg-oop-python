@@ -281,7 +281,7 @@ button:disabled {
     gap: 0.5rem;
     padding: 0;
     margin-left: 0;
-    height: 80px;
+    height: 60px;
   }
 
   .button-container-wrapper {
