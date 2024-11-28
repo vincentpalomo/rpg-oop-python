@@ -108,7 +108,7 @@ function updateGameState(state) {
     const formattedMessages = messages.map(msg => {
       // Only add timestamp to damage messages
       if (msg.includes('deal') && msg.includes('damage')) {
-        return `[${timestamp}] ${msg}`;
+        return `${msg}`;
       }
       return msg;
     });

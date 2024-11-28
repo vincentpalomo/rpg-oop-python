@@ -274,8 +274,8 @@ button:disabled {
   #game-output {
     width: 90%;
     margin: 0.5rem auto;
-    height: 10vh;
-    font-size: 16px;
+    height: 15vh;
+    font-size: 12px;
   }
 
   .stats-container {
@@ -330,9 +330,9 @@ button:disabled {
   }
 
   .health-bar {
-    margin-left: -62px;
+    margin-left: -70px;
     text-align: center;
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .health-display {
@@ -347,6 +347,10 @@ button:disabled {
     margin: 5px auto;
     width: 100%;
     padding: 5px;
+  }
+
+  #enemy-stats {
+    margin-right: 0;
   }
 
   h1 {
