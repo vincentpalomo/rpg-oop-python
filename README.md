@@ -1,6 +1,6 @@
 # Mystical Realms ⚔
 
-Welcome to Mystical Realms, an exciting text-based RPG game written in Python using Object-Oriented Programming (OOP) principles.
+Welcome to Mystical Realms, an exciting text-based RPG game written in Python using Object-Oriented Programming (OOP) principles. The game is now a full-stack Python Flask app, providing a more dynamic and interactive experience.
 
 ## Getting Started
 
@@ -24,7 +24,7 @@ cd your-repository/0.0.3
 python main.py
 ```
 
-Gameplay
+## Gameplay
 
 - Your hero will face off against various enemies in a battle. 
 - Defeat enemies to progress through stages and earn loot.
@@ -33,21 +33,35 @@ Gameplay
 > [!NOTE]
 > Game is currently a Work In Progress and some features have not been implemented yet.
 
-Code Structure
+## Code Structure
 
 The game is organized into three main classes:
 
-    Hero: Represents the player character.
-    Enemy: Represents the adversaries your hero will face.
-    GameLoop: Manages the game flow, including battles and progression.
+- **Hero**: Represents the player character.
+- **Enemy**: Represents the adversaries your hero will face.
+- **GameLoop**: Manages the game flow, including battles and progression.
+
+## Mobile Improvements
+
+Recent updates have focused on enhancing the mobile experience:
+
+- The layout has been adjusted to fit within a 414px x 796px viewport.
+- All elements are centered, providing a more user-friendly interface.
+- Padding for hero and enemy stats containers has been reduced for a more compact design.
+- The height of the game output has been set to 20vh to ensure better visibility on mobile devices.
+
+## Full-Stack Features
+
+- The game is now built as a full-stack application using Flask, allowing for a more interactive and dynamic gameplay experience.
+- Server-side logic is handled with Flask, enabling features like user sessions, data persistence, and more.
 
 Feel free to explore and modify the code according to your preferences and creativity!
 
-Dependencies
+## Dependencies
 
 The game has no external dependencies. Simply run it with a Python interpreter.
 
-Contributing
+## Contributing
 
 If you have suggestions, improvements, or bug fixes, feel free to contribute by creating a pull request. Your contributions are highly appreciated!
 
