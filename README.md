@@ -70,13 +70,14 @@ If you have suggestions, improvements, or bug fixes, feel free to contribute by 
 ---
 
 <p align='center'>
-    <img src='./images/main_title.png' alt='main title'>
-    <img src='./images/stage_implementation.png' alt='stage'>
-    <img src='./images/Battle.png' alt='battle'>
-    <img src='./images/critical_and_healthbar.png' alt='critical and healthbar'>
-    <img src='./images/loot_drop.png' alt='loot drop'>
-    <img src='./images/stage_winner.png' alt='stage winner'>
-    <img src='./images/loss_screen2.png' alt='stage loser'>
+<img src='./images/mr-pf.JPG' alt='Updated Full Stack View'>
+<img src='./images/main_title.png' alt='main title'>
+<img src='./images/stage_implementation.png' alt='stage'>
+<img src='./images/Battle.png' alt='battle'>
+<img src='./images/critical_and_healthbar.png' alt='critical and healthbar'>
+<img src='./images/loot_drop.png' alt='loot drop'>
+<img src='./images/stage_winner.png' alt='stage winner'>
+<img src='./images/loss_screen2.png' alt='stage loser'>
 </p>
 
 `note for future improvements`
